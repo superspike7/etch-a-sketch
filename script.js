@@ -1,3 +1,10 @@
+// TO DO
+// create an querySelector after the dynamically added divs
+// fix the querySelector for the cell divs
+// attach the querySelector to a click evenlistener
+// fix the grid positioning of the cells so that it resizises when it reaches many
+
+
 const container = document.querySelector('.container');
 const btn = document.querySelector('.btn');
 
@@ -11,7 +18,7 @@ const createCells = function(rows, columns) {
         let cell = document.createElement('div');
         cell.classList.add('cell');
         container.appendChild(cell);
-    }    
+    }
 }
 
 const changeGrid = function(rows, columns) {
@@ -24,13 +31,11 @@ const changeGrid = function(rows, columns) {
    }
 }
 
-
-
+const sketchDraw = function(e) {
+    if (e.target.className == 'cell') {
+        e.target.classList.add('clicked');
+    }
+}
 
 btn.addEventListener('click', changeGrid);
-
-document.querySelectorAll('.cell').forEach((cell) => {   
-    cell.addEventListener('click', function (e) {
-        consolee.log('bitch');
-    }); 
-});
+window.addEventListener('mousedown', sketchDraw)
