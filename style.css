@@ -5,19 +5,18 @@
 }
 
 .cell {
-    border: black 1px solid;
-    height: 38px;
-    width: 38px;
+    background-color: white;
     text-align: center;
-    padding: 1em;
 }
 
-.cell:hover {
-    background-color: darkslategray;
-}
 
-.clicked {
+.black {
     background-color: rgb(20, 20, 20);
+    border: none;
+}
+
+.black:hover {
+    background-color: darkgrey;
 }
 
 .container {
@@ -29,15 +28,20 @@
     padding: 0;
 }
 
+
 .toolbar {
     margin: auto;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 610px;
+    width: 650px;
     border: 0.5px solid black;
-    height: 30px;
+    height: 50px;
+}
+
+#grid-size {
+    width: 5em;
 }
 
 .btn {
@@ -47,6 +51,7 @@
     height: 2em;
     color: floralwhite;
     padding: 0 1em;
+    margin: 0 0.5em;
 }
 
 .btn:hover {
