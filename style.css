@@ -4,39 +4,39 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(241, 240, 238);
+}
+
 .cell {
     background-color: white;
     text-align: center;
 }
 
-
-.black {
-    background-color: rgb(20, 20, 20);
-    border: none;
-}
-
-.black:hover {
-    background-color: darkgrey;
+.cell:hover { 
+    background-color: teal;
 }
 
 .container {
     display: grid;
-    border: 0.5px solid black;
-    height: 610px;
-    width: 610px;
-    margin: auto;
+    border-radius: 8px;
+    border: 10px solid rgba(0, 0, 0, 0.699);
+    height: 500px;
+    width: 500px;
+    margin: 10px auto;
     padding: 0;
 }
 
 
 .toolbar {
+    border-radius: 8px;
     margin: auto;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 650px;
-    border: 0.5px solid black;
+    width: 550px;
+    border: 2px solid rgb(42, 42, 43);
     height: 50px;
 }
 
@@ -56,4 +56,8 @@
 
 .btn:hover {
     background: rgb(117, 14, 14);
+}
+
+h1 {
+    text-align: center;
 }

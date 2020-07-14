@@ -1,17 +1,13 @@
-// TO FIX
-// 1.) dragging effect when drawing
-
-// TO DO
-// 1) color mode
-// 2.) make the whole page look pretty and sassy
-// 3.) finishing touches and move on to the next project/lesson
+// etch-a-sketch project by Spike Vinz Cruz
+// part of The Odin Project Curriculum
 
 const container = document.querySelector('.container');
-const btnChange = document.querySelector('#change');
 const btnClear = document.querySelector('#clear');
 const btnNormal = document.querySelector('#normal');
 const btnSketch = document.querySelector('#sketch');
+const btnColor = document.querySelector('#change-color');
 let gridSize = document.querySelector('#grid-size').value;
+let color = '#000'
 let userClick = false;
 
 const createCells = function(rows, columns) {
@@ -37,16 +33,13 @@ const changeGrid = function(rows, columns) {
    }
 }
 
-const clearGrid = function(e) {
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => {
-        cell.style.backgroundColor = '#fff'
-    });
-}
-
-
 const normalDraw = function(e) {
     changeGrid();
+    const color = function(e) {
+        let color = document.querySelector('#color').value;
+        return color;
+    }
+    btnColor.addEventListener('click', color);
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
         cell.addEventListener('mousedown', () => {
@@ -55,7 +48,7 @@ const normalDraw = function(e) {
     });
     cells.forEach(cell => {
         cell.addEventListener('mouseup', e => {
-            e.target.style.backgroundColor= 'black';
+            e.target.style.backgroundColor = color();
             userClick = false;
         });
     });
@@ -69,7 +62,7 @@ const normalDraw = function(e) {
     cells.forEach(cell => {
         cell.addEventListener('mouseleave', e => {
             if (userClick) {
-                e.target.style.backgroundColor= 'black';
+                e.target.style.backgroundColor= color();
             }
         });
     });
@@ -86,7 +79,7 @@ const sketchDraw = function(e) {
     });
     cells.forEach(cell => {
         cell.addEventListener('mouseup', e => {
-            e.target.style.backgroundColor= 'black';
+            e.target.style.backgroundColor = 'black';
             userClick = false;
         });
     });
@@ -113,11 +106,12 @@ const sketchDraw = function(e) {
 }
 
 
+
 changeGrid();
 normalDraw();
 
-btnClear.addEventListener('click', clearGrid);
-btnChange.addEventListener('click', changeGrid);
+
+btnClear.addEventListener('click', changeGrid);
 btnNormal.addEventListener('click', normalDraw);
 btnSketch.addEventListener('click', sketchDraw);
 
